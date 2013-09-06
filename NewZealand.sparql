@@ -1,0 +1,16 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX svf: <http://data.fundref.org/xml/schema/grant/grant-1.2/> 
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#> 
+
+# List 10 funding bodies from New Zealand http://sws.geonames.org/2186224/
+
+SELECT * WHERE {
+  ?doi svf:country <http://sws.geonames.org/2186224/> .
+  ?doi skosxl:prefLabel ?prefLabel .
+  ?prefLabel skosxl:literalForm ?label .
+
+  ?doi svf:fundingBodySubType ?fundingBodyType .
+
+
+} LIMIT 10
